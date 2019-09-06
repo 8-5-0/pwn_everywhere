@@ -163,8 +163,10 @@ def run_pwn(args):
     # First we need a running thread in the background, to hold existence
     try:
         os.system('xhost +')
-        idx = os.popen('ifconfig en0').read().find('inet ')
-        ip = os.popen('ifconfig en0').read()[idx+5:idx+19]
+        tmp = os.popen('ifconfig en0').read()
+        idx = tmp.find('inet ')
+        tmp = tmp[idx+5:]
+        ip = tmp[:tmp.find(' ')]
         running_container = container.run(
             'pwn:{}'.format(ubuntu),
             "/bin/bash -c 'while true;do echo hello docker;sleep 1;done'",
@@ -188,7 +190,7 @@ def run_pwn(args):
             privileged=privileged,
             network_mode='host',
             environment={
-                'DISPLAY': ip+':0'
+                'DISPLAY': ip+':1'
                 # 'DISPLAY': os.environ['DISPLAY']
             }
         )

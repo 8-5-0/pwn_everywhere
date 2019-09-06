@@ -14,5 +14,5 @@
 
 参考文章：
 
-[https://bestwing.me/Docker-for-Mac-and-run-gdb-GUI-window.html]。
+https://bestwing.me/Docker-for-Mac-and-run-gdb-GUI-window.html。
 

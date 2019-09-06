@@ -10,3 +10,5 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 mv /.zshrc -f /root/.zshrc
 echo "[*]installing zsh-autosuggestions"
 git clone git://github.com/zsh-users/zsh-autosuggestions /root/.zsh/plugins/zsh-autosuggestions
+echo "[*]installing one_gadget"
+gem install one_gadget
