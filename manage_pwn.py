@@ -166,9 +166,10 @@ def run_pwn(args):
     try:
         # check if Xserver is running
         if not "XQuartz" in (p.name() for p in psutil.process_iter()):
-            raise "Xserver not started, please use command : open -a XQuartz to open it"
+            raise Exception("Xserver not started, please open XQuartz first")
             
         display_environ = re.findall("[0-9]{1,3}\\."*3+"[0-9]{1,3}:.",sp.getoutput("xauth list"))[0]
+        # find display
         os.environ['DISPLAY'] = display_environ
         os.system("xhost +")
         running_container = container.run(
