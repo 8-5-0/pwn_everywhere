@@ -6,6 +6,8 @@ import os.path
 import docker
 import sys
 import json
+import re
+import psutil
 import subprocess as sp
 
 from logger import logger
@@ -162,11 +164,13 @@ def run_pwn(args):
 
     # First we need a running thread in the background, to hold existence
     try:
-        os.system('xhost +')
-        tmp = os.popen('ifconfig en0').read()
-        idx = tmp.find('inet ')
-        tmp = tmp[idx+5:]
-        ip = tmp[:tmp.find(' ')]
+        # check if Xserver is running
+        if not "XQuartz" in (p.name() for p in psutil.process_iter()):
+            raise "Xserver not started, please use command : open -a XQuartz to open it"
+            
+        display_environ = re.findall("[0-9]{1,3}\\."*3+"[0-9]{1,3}:.",sp.getoutput("xauth list"))[0]
+        os.environ['DISPLAY'] = display_environ
+        os.system("xhost +")
         running_container = container.run(
             'pwn:{}'.format(ubuntu),
             "/bin/bash -c 'while true;do echo hello docker;sleep 1;done'",
@@ -190,7 +194,7 @@ def run_pwn(args):
             privileged=privileged,
             network_mode='host',
             environment={
-                'DISPLAY': ip+':1'
+                'DISPLAY': display_environ
                 # 'DISPLAY': os.environ['DISPLAY']
             }
         )
