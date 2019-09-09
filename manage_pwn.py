@@ -172,6 +172,7 @@ def run_pwn(args):
         # find display
         os.environ['DISPLAY'] = display_environ
         os.system("xhost +")
+        # open xserver
         running_container = container.run(
             'pwn:{}'.format(ubuntu),
             "/bin/bash -c 'while true;do echo hello docker;sleep 1;done'",
