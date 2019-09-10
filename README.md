@@ -1,18 +1,20 @@
 # Pwn with Docker in Mac OS
 
-**利用在mac环境下随心所欲地pwn吧！**
+**Pwning under Mac!**
+
+### Quick start
+
+#### XQuartz
+
 
 ### 使用方法
 
-`export DISPLAY=localhost:1`
-
-`open -a XQuartz`
 
 `python3 manage_pwn.py [-h] {run,attach,end} ...`
 
-`python3 manage_pwn.py run --ubuntu 18.04 ./ --priv`
+e.g.: `python3 manage_pwn.py run --ubuntu 18.04 ./ --priv`
 
-参考文章：
+致谢：
 
-https://bestwing.me/Docker-for-Mac-and-run-gdb-GUI-window.html。
-
+项目思路来自于swing师傅：https://bestwing.me/Docker-for-Mac-and-run-gdb-GUI-window.html。
+manage_pwn 修改自 ancypwn https://github.com/WinMin/ancypwn/
