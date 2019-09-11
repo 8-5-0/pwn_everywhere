@@ -165,7 +165,7 @@ def run_pwn(args):
     # First we need a running thread in the background, to hold existence
     try:
         # check if Xserver is running
-        if not "XQuartz" in (p.name() for p in psutil.process_iter()):
+        if not "Xquartz" in (p.name() for p in psutil.process_iter()):
             raise Exception("Xserver not started, please open XQuartz first")
             
         display_environ = re.findall("[0-9]{1,3}\\."*3+"[0-9]{1,3}:.",sp.getoutput("xauth list"))[0]
