@@ -9,7 +9,12 @@
 * open it with command `open -a XQuartz`
 #### Docker
 * build image with Dockerfile
-  *You can add anything you like in Dockerfile and install.sh*
+  *You can custimize Dockerfile, .zshrc and install.sh as you like.*
+  
+#### Key Components
+```
+zsh, pwntools, ipython, gef, oh-my-zsh, zsh-autosuggestions, one_gadget, vim, lxterminal
+```
 
 ### 使用方法
 
