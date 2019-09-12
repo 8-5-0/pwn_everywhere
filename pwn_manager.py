@@ -168,9 +168,8 @@ def run_pwn(args):
         if not "Xquartz" in (p.name() for p in psutil.process_iter()):
             raise Exception("Xserver not started, please open XQuartz first")
             
-        display_environ = re.findall("[0-9]{1,3}\\."*3+"[0-9]{1,3}:.",sp.getoutput("xauth list"))[0]
-        # find display
-        os.environ['DISPLAY'] = display_environ
+        display_offset = os.environ['DISPLAY'][os.environ['DISPLAY'].find(':')+1:]
+        # find display offset
         os.system("xhost +")
         # open xserver
         running_container = container.run(
@@ -196,7 +195,7 @@ def run_pwn(args):
             privileged=privileged,
             network_mode='host',
             environment={
-                'DISPLAY': display_environ
+                'DISPLAY': "host.docker.internal:"+str(display_offset)
                 # 'DISPLAY': os.environ['DISPLAY']
             }
         )
