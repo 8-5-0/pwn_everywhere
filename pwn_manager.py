@@ -19,7 +19,7 @@ from distutils.dir_util import mkpath
 EXIST_FLAG = '/tmp/ancypwn.id'
 SUPPORTED_UBUNTU_VERSION = [
 #    '14.04', Still many issues to be solved (version problems mostly)
-    '16.04',
+    # '16.04',
     '18.10',
     '18.04',
 ]
