@@ -14,14 +14,14 @@ RUN dpkg --add-architecture i386 && apt-get update && \
     gcc-multilib \
     gdb-multiarch ltrace strace\
     gcc g++ \
-    wget \
+    wget ca-certificates ssl-cert\
     curl \
     glibc-source \
     cmake \
     python-capstone \
     socat \
     netcat \
-    ruby \
+    ruby ruby-dev\
     lxterminal \
     zsh vim\
     automake autoconf \
