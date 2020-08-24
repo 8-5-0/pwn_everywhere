@@ -23,6 +23,7 @@ SUPPORTED_UBUNTU_VERSION = [
     '19.04',
     '18.04',
     '19.10',
+    '20.04'
 ]
 
 client = docker.from_env()
