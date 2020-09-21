@@ -176,7 +176,7 @@ def run_pwn(args):
         # open xserver
         running_container = container.run(
             'pwn:{}'.format(ubuntu),
-            "/bin/bash -c 'while true;do echo hello docker;sleep 1;done'",
+            "/bin/bash -c 'sleep infinity'",
             cap_add=['SYS_ADMIN', 'SYS_PTRACE'],
             detach=True,
             tty=True,
