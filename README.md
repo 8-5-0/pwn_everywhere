@@ -9,7 +9,7 @@
 * open it with command `open -a XQuartz`
 #### Docker
 * build image with Dockerfile
-  *You can custimize Dockerfile, .zshrc and install.sh as you like.*
+  *You can custimize Dockerfile, .zshrc and install.sh as you will.*
   
 #### Key Components
 ```
@@ -21,8 +21,10 @@ zsh, pwntools, ipython, gef, oh-my-zsh, zsh-autosuggestions, one_gadget, vim, lx
 ```
 python3 manage_pwn.py [-h] {run,attach,end} [--ubuntu] [version] [directory] [--priv]...
 
-e.g. python3 manage_pwn.py run --ubuntu 18.04 ./ --priv
+e.g. python3 manage_pwn.py run --ubuntu 18.04 ./ 
 ```
+
+**推荐配合https://github.com/8-5-0/PWNTemplate 一起使用效果更佳**
 
 致谢：
 
