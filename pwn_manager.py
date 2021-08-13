@@ -178,6 +178,7 @@ def run_pwn(args):
             'pwn:{}'.format(ubuntu),
             "/bin/bash -c 'sleep infinity'",
             cap_add=['SYS_ADMIN', 'SYS_PTRACE'],
+            security_opt=['seccomp=unconfined'],
             detach=True,
             tty=True,
             volumes={
